@@ -59,13 +59,6 @@ body {
 a {
   display: block;
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  font-size: 0.9rem;
-  font-weight: bolder;
-}
-
-a:hover {
-  color: #f7b300;
 }
 
 /* NAV */
@@ -80,18 +73,20 @@ a:hover {
   padding-right: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links {
   position: absolute;
   top: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  left: 2.5%;
+  right: 2.5%;
+  width: 95%;
   background: white;
   padding: 2rem 1.5rem;
   border-radius: 1rem;
-  transition: all 1s cubic-bezier(0.01, 0.54, 0.23, 1);
-  transform: translateY(-110%);
+  transition: all 0.8s cubic-bezier(0.01, 0.54, 0.23, 1);
+  transform: translateY(-111%);
 }
 
 .show-links {
@@ -112,11 +107,33 @@ a:hover {
   margin-top: 2rem;
 }
 
+.nav-links-items img {
+  width: 1.5rem;
+}
+
+.nav-links-items a {
+  color: rgb(0, 0, 0);
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+.nav-links-items a:hover {
+  color: #f7b300;
+}
+
+.nav-signin-btn {
+  background: #133416;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
 .nav-links-items > div {
   margin-top: 1rem;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   column-gap: 1rem;
 }
 
@@ -130,16 +147,16 @@ a:hover {
 
 /* SECTION 1 */
 
-.section-1 * {
-  margin-bottom: 1rem;
-}
-
 .section-1 {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+}
+.section-1-con {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 1rem;
 }
 
 .section-1 h1 {
-  width: 80%;
   font-size: 1.9rem;
   font-weight: bolder;
 }
@@ -160,6 +177,7 @@ a:hover {
   border-radius: 0.3rem;
   color: white;
   font-size: 1.2rem;
+  width: 40%;
 }
 
 .reviews {
@@ -194,10 +212,160 @@ img {
 }
 
 .companies {
-  margin-top: 1rem;
+  margin-top: 2rem;
   padding-bottom: 2rem;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 1rem;
+}
+
+.desktop-nav {
+  display: none;
+}
+.hero-img {
+  display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 750px) {
+  .nav-center,
+  .main {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .nav-links {
+    width: 50%;
+    left: 40%;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  /* NAV */
+
+  .menu-btn {
+    display: none;
+  }
+  .desktop-nav,
+  .hero-img {
+    display: block;
+  }
+
+  .nav-center {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .desktop-nav {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    padding-right: 0;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: left;
+    margin-left: 1em;
+  }
+
+  .desktop-nav-links > a,
+  .desktop-nav-sign-in a {
+    color: #747473;
+  }
+
+  .desktop-nav-sign-in {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+
+  .nav-links-items {
+    margin: 0;
+  }
+
+  .product-link {
+    position: relative;
+  }
+
+  .product-item::before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -0.4em;
+    left: calc(25% - 0.5em);
+    border-style: solid;
+    border-color: white transparent;
+    border-width: 0 0.5em 0.5em 0.5em;
+  }
+
+  .product-item {
+    z-index: 2;
+    position: absolute;
+    width: 25em;
+    top: 2.5rem;
+    left: -100%;
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.8s cubic-bezier(0, 0.46, 0.44, 0.99);
+  }
+
+  .product-link:hover .product-item {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* MAIN */
+  .main {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .section-1 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .section-1 h1 {
+    font-size: 3.5rem;
+    width: 90%;
+  }
+  .section-1 h4 {
+    width: 90%;
+  }
+
+  .section-1-con {
+    width: 68%;
+  }
+
+  .hero-img {
+    margin-bottom: 0;
+    width: 32%;
+  }
+
+  .hero-img img {
+    width: 100%;
+  }
+
+  /* SECTION 2 */
+
+  .companies {
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, auto);
+    padding-bottom: 5rem;
+  }
 }
