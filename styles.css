@@ -232,7 +232,7 @@ img {
   }
 }
 
-@media screen and (min-width: 1120px) {
+@media screen and (min-width: 1024px) {
   /* NAV */
 
   .menu-btn {
@@ -253,7 +253,7 @@ img {
 
   .desktop-nav {
     display: flex;
-    width: 75%;
+    width: 80%;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -262,9 +262,9 @@ img {
 
   .desktop-nav-links {
     display: flex;
-    column-gap: 3rem;
-    justify-content: left;
+    column-gap: 2rem;
     align-items: center;
+    margin-left: 7%;
   }
 
   .desktop-nav-links > a,
